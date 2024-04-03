@@ -1,0 +1,129 @@
+.login-register-container {
+    min-height: 100vh;
+    background-color: #f5f5f5;
+  }
+  
+  p-card {
+    width: 400px;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 1s ease;
+  }
+  
+  .card-title {
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 30px;
+    color: #333;
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  .p-input-icon-left {
+    display: block;
+  }
+  
+  .p-input-icon-left i {
+    left: 10px;
+    color: #999;
+  }
+  
+  input[type="text"],
+  input[type="password"] {
+    width: 100%;
+    padding: 10px 10px 10px 40px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    transition: border-color 0.3s ease;
+  }
+  
+  input[type="text"]:focus,
+  input[type="password"]:focus {
+    outline: none;
+    border-color: #007bff;
+  }
+  
+  .actions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .apple-login-button,
+  .google-login-button {
+    width: 100%;
+    padding: 12px;
+    border-radius: 5px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+  
+  .apple-login-button {
+    background-color: #000;
+    color: #fff;
+    border: none;
+  }
+  
+  .google-login-button {
+    background-color: #fff;
+    color: #333;
+    border: 1px solid #ccc;
+  }
+  
+  .apple-login-button:hover,
+  .google-login-button:hover {
+    background-color: #007bff;
+    color: #fff;
+    transform: translateY(-2px);
+  }
+  
+  .apple-login-button:disabled,
+  .google-login-button:disabled {
+    background-color: #ccc;
+    color: #999;
+    cursor: not-allowed;
+    transform: none;
+  }
+  
+  .register-link {
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  .register-link a {
+    color: #007bff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  
+  .register-link a:hover {
+    color: #0056b3;
+  }
+  
+  .spinner-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+  }
+  
+  .custom-spinner {
+    width: 50px;
+    height: 50px;
+  }
+  
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
