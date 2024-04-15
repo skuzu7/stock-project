@@ -1,0 +1,58 @@
+<!-- Seção do Banner -->
+<div class="banner">
+  <!-- Overlay do Banner -->
+  <div class="banner-overlay"></div>
+
+  <!-- Conteúdo do Banner -->
+  <div class="banner-content">
+    <h1 class="banner-title">{{ 'HEADER.TITLE' | translate }}</h1>
+    <p class="banner-description">{{ 'HEADER.DESCRIPTION' | translate }}</p>
+    <div class="banner-buttons">
+      <p-button label="{{ 'HEADER.GET_QUOTE' | translate }}" styleClass="btn-primary" [attr.aria-label]="'HEADER.GET_QUOTE' | translate"></p-button>
+
+
+      <p-button label="{{ 'HEADER.LEARN_MORE' | translate }}" styleClass="btn-secondary"></p-button>
+    </div>
+  </div>
+
+  <!-- Formulário do Banner -->
+  <div class="banner-form">
+    <app-register></app-register>
+  </div>
+</div>
+
+<!-- Seção de Conselhos Práticos -->
+<div class="practice-advice" fxLayout="column" fxLayoutAlign="start center">
+  <h2 class="section-title">{{ 'PRACTICE_ADVICE.TITLE' | translate }}</h2>
+  <p class="section-description">{{ 'PRACTICE_ADVICE.DESCRIPTION' | translate }}</p>
+  <!-- Carrossel -->
+  <p-carousel [value]="modulos" [circular]="true" [numVisible]="3" [numScroll]="1" [responsiveOptions]="responsiveOptions" styleClass="custom-carousel">
+    <ng-template pTemplate="item" let-modulo>
+      <!-- Item do Produto -->
+      <div class="product-item" fxLayout="column" fxLayoutAlign="start stretch" style="height: 100%; box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);">
+        <div fxLayout="column" fxLayoutGap="10px" fxFlex>
+          <h4><fa-icon [icon]="getIcon(modulo.Descricao)"></fa-icon> {{ modulo.Descricao }}</h4>
+          <h6 *ngFor="let subModulo of modulo.subModulos">{{ subModulo.Descricao }}</h6>
+        </div>
+        <div fxLayout="row" fxLayoutAlign="center center" fxFlex="none">
+          <p-button label="{{ 'BUTTON.LEARN_MORE' | translate }}" class="btn-outline"></p-button>
+        </div>
+      </div>
+    </ng-template>
+  </p-carousel>
+</div>
+
+<!-- Seção de Vídeo -->
+<div class="who-we-are-video">
+  <div class="video-container">
+    <iframe src="https://www.youtube.com/embed/6lliwXFRMM4" frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen></iframe>
+  </div>
+</div>
+
+<!-- Seção de Troca de Idioma -->
+<div class="language-switcher">
+  <p-button label="English" (click)="changeLanguage('en')" styleClass="btn-language btn-english"></p-button>
+  <p-button label="Português" (click)="changeLanguage('pt')" styleClass="btn-language btn-portuguese"></p-button>
+</div>

@@ -21,17 +21,22 @@ export class AuthService {
   private apiUrl = environment.apiUrl;
 
   constructor(private http: HttpClient, private cookieService: CookieService) {
-   
+
     const token = this.cookieService.get('authToken');
     if (token) {
       this.authToken$.next(token);
     }
   }
 
+  isAuthenticated(): boolean {
+    const token = this.cookieService.get('authToken');
+    return !!token; // Retorna true se o token existir, false caso contrário
+  }
+
   login(loginData: LoginRequest): Observable<AuthResponse> {
     return this.http.post<AuthResponse>(`${this.apiUrl}/auth`, loginData).pipe(
       map((response: AuthResponse) => {
-     
+
         this.cookieService.put('authToken', response.token);
         this.authToken$.next(response.token);
         return response;

@@ -1,28 +1,41 @@
 <div class="p-d-flex p-flex-column p-ai-center p-jc-center" style="height: 100vh;">
   <div class="p-shadow-6 p-p-4 p-rounded p-d-flex p-flex-column p-ai-center" style="width: 25rem;">
     <div class="p-mb-4" [ngClass]="{'pulse-effect': effect}">
-      <img src="https://i.pinimg.com/736x/a0/00/45/a00045f3f872c3e65993a6cbcd89d439.jpg" alt="Logo" class="p-as-center" style="height: 10rem;" />
+      <img src="https://antigo.itworks.com.br/wp-content/uploads/2016/12/itworks.png" alt="Logo" class="p-as-center"
+        style="height: 5rem;" />
     </div>
     <p-toast></p-toast>
+
+    <h1 class="p-text-center p-mb-3" translate>WELCOME</h1>
+    <p class="p-text-center p-text-secondary p-mb-4" translate>LOG_IN_INFO</p>
     
-    <h1 class="p-text-center p-mb-3">Welcome</h1>
-    <p class="p-text-center p-text-secondary p-mb-4">Log in to auth0labs to continue to Auth0 Angular Sample.</p>
-    <form [formGroup]="loginForm" (ngSubmit)="login()" class="p-fluid p-w-100">
+    <form [formGroup]="loginForm" class="p-fluid">
       <div class="p-field">
-        <input id="email" type="email" formControlName="email" pInputText placeholder="Email address" class="p-mb-3" />
+        <input id="email" type="email" formControlName="email" pInputText
+          [placeholder]="'EMAIL_ADDRESS_PLACEHOLDER' | translate" class="p-inputtext p-mb-3" />
       </div>
       <div class="p-field">
-        <input id="password" type="password" formControlName="password" pInputText placeholder="Password" class="p-mb-4" />
+        <input id="password" type="password" formControlName="password" pInputText
+          [placeholder]="'PASSWORD_PLACEHOLDER' | translate" class="p-inputtext p-mb-4" />
       </div>
-      <button type="submit" pButton label="Continue" class="p-button-danger p-button-rounded p-mb-3 p-button-lg"></button>
+      <button type="submit" pButton [label]="'CONTINUE' | translate" class="p-button p-button-danger p-button-rounded p-mb-3 p-button-lg" (click)="login()"></button>
     </form>
-    <a href="#" (click)="forgotPassword()" class="p-text-center p-text-sm p-link p-mb-4">Forgot password?</a>
-    <div class="p-d-flex p-ai-center p-jc-center p-mb-4">
-      <div class="p-mr-2">────</div>
-      <p class="p-mx-2 p-my-0">OR</p>
-      <div class="p-ml-2">────</div>
+
+    <a href="#" (click)="forgotPassword()" class="p-text-center p-text-sm p-link p-mb-4" translate>FORGOT_PASSWORD</a>
+    
+    <div class="p-divider">
+      <p class="p-mx-2 p-my-0" translate>OR</p>
     </div>
-    <button (click)="loginWithGoogle()" pButton label="Continue with Google" class="p-button-outlined p-button-rounded p-button-lg p-w-100"></button>
-    <p class="p-text-center p-mt-4">Don't have an account? <a (click)="goToRegisterPage()" class="p-link">Sign up</a></p>
+    
+    <button (click)="loginWithGoogle()" pButton [label]="'CONTINUE_WITH_GOOGLE' | translate"
+      class="p-button p-button-outlined p-button-rounded p-button-lg p-w-100"></button>
+    
+    <p class="p-text-center p-mt-4" translate>DONT_HAVE_ACCOUNT<a (click)="goToRegisterPage()" class="p-link">Sign
+        up</a></p>
+    
+    <div class="p-d-flex p-jc-center p-mt-4">
+      <button (click)="changeLanguage('en')" class="p-button p-button-text p-mr-2">English</button>
+      <button (click)="changeLanguage('pt')" class="p-button p-button-text">Português</button>
+    </div>
   </div>
 </div>

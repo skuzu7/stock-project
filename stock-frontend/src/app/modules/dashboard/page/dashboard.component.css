@@ -1,0 +1,162 @@
+.main-content {
+  padding: 1.25rem;
+}
+
+.banner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f0f0f0;
+  padding: 3.75rem;
+  border-radius: 0.75rem;
+  box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden; /* Adicionado para garantir que o overlay não saia dos limites */
+}
+
+.banner-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('https://blog.contaazul.com/wp-content/uploads/2023/04/B-105-retencao-istock-1.jpg') center/cover no-repeat;
+  opacity: 0.5;
+  border-radius: 0.75rem;
+}
+
+.banner-content {
+  position: relative;
+  z-index: 2;
+  padding: 1rem; /* Espaçamento interno para melhor leitura */
+}
+
+.banner-title {
+  font-size: 2.25rem;
+  font-weight: bold;
+  margin-bottom: 1.25rem;
+  line-height: 1.2; /* Melhorar a legibilidade */
+}
+
+.banner-description {
+  font-size: 1.25rem;
+  margin-bottom: 1.75rem;
+  line-height: 1.5; /* Melhorar a legibilidade */
+}
+
+.banner-buttons {
+  display: flex;
+  gap: 1.25rem;
+  transition: transform 0.3s; /* Suavização na interação */
+}
+
+.banner-buttons p-button {
+  transition: background-color 0.3s, transform 0.3s; /* Suavização na interação */
+}
+
+.banner-buttons p-button:hover {
+  transform: translateY(-0.25rem); /* Efeito de hover sutil */
+}
+
+.banner-form {
+  flex: 1;
+  margin-left: 3.75rem;
+  position: relative;
+  z-index: 2;
+}
+
+/* Estilos adicionais para responsividade */
+@media (max-width: 768px) {
+  .banner {
+    flex-direction: column;
+    padding: 2rem;
+  }
+
+  .banner-form {
+    margin-left: 0;
+    margin-top: 2rem;
+  }
+
+  .banner-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .banner-buttons p-button {
+    width: 100%; /* Botões ocupam toda a largura em telas menores */
+  }
+}
+
+.practice-advice {
+  text-align: center;
+  margin-top: 3.75rem;
+}
+
+.section-title {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 1.25rem;
+}
+
+.section-description {
+  font-size: 1.25rem;
+  margin-bottom: 2.5rem;
+}
+
+.who-we-are-video {
+  text-align: center;
+  margin-top: 3.75rem;
+}
+
+.video-container {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+  border-radius: 0.75rem;
+}
+
+.video-container iframe {
+  width: 37.5rem;
+  height: 25rem;
+}
+
+.language-switcher {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1.75rem;
+}
+
+.btn-language {
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  border-radius: 0.25rem;
+  cursor: pointer;
+}
+
+.btn-english {
+  background-color: #2196F3;
+  color: white;
+}
+
+.btn-portuguese {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.product-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  box-shadow: 0 0 0.625rem rgba(0, 0, 0, 0.15);
+  padding: 1rem;
+  margin: 0.5rem;
+}
+
+.product-image {
+  width: 100%;
+  height: auto;
+  margin-bottom: 0.625rem;
+}
