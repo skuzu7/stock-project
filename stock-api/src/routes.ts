@@ -4,6 +4,7 @@ import { Router } from "express";
 import { CreateUserController } from "./controllers/user/CreateUserController";
 import { AuthUserController } from "./controllers/user/AuthUserController";
 import { isAuthenticated } from "./middlewares/isAuthenticated";
+import { requireAdmin } from "./middlewares/requireAdmin";
 import { CreateProductController } from "./controllers/product/CreateProductController";
 import { CreateCategoryController } from "./controllers/category/CreateCategoryController";
 import { EditCategoryController } from "./controllers/category/EditCategoryController";
@@ -24,12 +25,12 @@ router.post("/auth", new AuthUserController().handle);
 router.post(
   "/category",
   isAuthenticated,
-  new CreateCategoryController().handle
+  requireAdmin, new CreateCategoryController().handle
 );
 router.put(
   "/category/edit",
   isAuthenticated,
-  new EditCategoryController().handle
+  requireAdmin, new EditCategoryController().handle
 );
 router.get(
   "/categories",
@@ -39,26 +40,26 @@ router.get(
 router.delete(
   "/category/delete",
   isAuthenticated,
-  new DeleteCategoryController().handle
+  requireAdmin, new DeleteCategoryController().handle
 );
 
 /* PRODUCT */
-router.post("/product", isAuthenticated, new CreateProductController().handle);
+router.post("/product", isAuthenticated, requireAdmin, new CreateProductController().handle);
 router.put(
   "/product/edit",
   isAuthenticated,
-  new EditProductController().handle
+  requireAdmin, new EditProductController().handle
 );
 router.get("/products", isAuthenticated, new ListProductsController().handle);
 router.delete(
   "/product/delete",
   isAuthenticated,
-  new DeleteProductController().handle
+  requireAdmin, new DeleteProductController().handle
 );
 router.put(
   "/product/sale",
   isAuthenticated,
-  new SaleProductController().handle
+  requireAdmin, new SaleProductController().handle
 );
 
 export { router };
