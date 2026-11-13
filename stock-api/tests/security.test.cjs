@@ -18,11 +18,11 @@ test('inventory writes enforce authentication and admin authorization', () => {
     'SaleProductController',
   ];
   for (const controller of writeControllers) {
-    const escaped = controller.replace(/[^a-zA-Z0-9]/g, '');
-    const route = new RegExp('router\\.(?:post|put|delete)\\([\\s\\S]*?new ' + escaped + '\\(\\)\\.handle[\\s\\S]*?\\);', 'g');
-    const blocks = [...routes.matchAll(route)];
-    assert.ok(blocks.length > 0, 'missing route for ' + controller);
-    const matching = blocks[blocks.length - 1][0];
+    const index = routes.indexOf('new ' + controller + '().handle');
+    assert.ok(index >= 0, 'missing route for ' + controller);
+    const start = routes.lastIndexOf('router.', index);
+    assert.ok(start >= 0, 'missing route declaration: ' + controller);
+    const matching = routes.slice(start, index);
     assert.match(matching, /isAuthenticated\s*,\s*requireAdmin\s*,/, 'missing admin guard: ' + controller);
   }
 });
