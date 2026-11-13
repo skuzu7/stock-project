@@ -92,3 +92,8 @@ jspm_packages/
 
 # Stores VSCode versions used for testing VSCode extensions
 .vscode-test
+# Local database snapshots / development secrets
+*.db
+*.db-*
+*.sqlite
+*.sqlite3
